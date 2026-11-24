@@ -1,19 +1,31 @@
-# Getting Started
-Install the dependencies and run the project
-```
-npm install
-npm start
-```
+# Tenzies
 
-Head over to https://vitejs.dev/ to learn more about configuring vite
-## About Scrimba
+An interactive dice game built with [React](https://react.dev/) where players roll ten dice and hold matching values until all dice show the same number.
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Fullstack Developer Path aims to teach you everything you need to become a Junior Developer, or you could go further with one of our advanced courses 🚀
+## Rules & Gameplay
 
-- [Our courses](https://scrimba.com/courses)
-- [The Frontend Career Path](https://scrimba.com/fullstack-path-c0fullstack)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+- Roll until all ten dice display the same value.
+- Click any die to freeze (`isHeld`) or unfreeze its current value between rolls.
+- Click **Roll** to roll only unheld dice.
+- Once all dice are held with matching values (`gameWon`), confetti appears, keyboard focus automatically moves to the **New Game** button via a ref, and clicking it starts a fresh round.
 
-Happy Coding!
+## Project Structure
+
+- `index.html` — Root HTML document and page metadata.
+- `index.jsx` — Application entry point mounting the root React component.
+- `src/App.jsx` (or `App.jsx`) — Manages dice state (`useState`), win condition evaluation, roll/reset logic, confetti rendering, and focus management (`useRef` + `useEffect`).
+- `src/Die.jsx` (or `Die.jsx`) — Renders an individual die button with its value, held state styling, and click handler.
+- `index.css` — Layout and visual styling for the game board, dice, and action button.
+
+## Dependencies
+
+- `react` (`^18.3.1`)
+- `react-dom` (`^18.3.1`)
+- `nanoid` (`^5.0.7`) — Generates unique IDs for each die.
+- `react-confetti` (`^6.1.0`) — Displays celebratory confetti when `gameWon` is true.
+
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
